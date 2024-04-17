@@ -32,7 +32,6 @@ jobs:
           NAME: clash
           BINDIR: bin
         run: |
-          make build_dep
           make -j releases
 
       - name: Upload Release
