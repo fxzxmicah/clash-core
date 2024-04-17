@@ -2,7 +2,7 @@ NAME=clash-core
 BUILDDIR=build/releases
 VERSION=$(shell git describe --tags || echo v0.0.0-test)
 BUILDTIME=$(shell date -u)
-GOBUILD=CGO_ENABLED=0 go generate && go build -trimpath -ldflags '-X "github.com/Dreamacro/clash/constant.Version=$(VERSION)" \
+GOBUILD=CGO_ENABLED=0 go build -trimpath -ldflags '-X "github.com/Dreamacro/clash/constant.Version=$(VERSION)" \
 		-X "github.com/Dreamacro/clash/constant.BuildTime=$(BUILDTIME)" \
 		-w -s -buildid='
 
@@ -24,9 +24,6 @@ WINDOWS_ARCH_LIST = \
 	windows-amd64 \
 	windows-arm64 \
 	windows-armv7
-
-build_dep:
-	go install github.com/josephspurrier/goversioninfo/cmd/goversioninfo@latest
 
 all: linux-amd64 windows-amd64 # Most used
 
